@@ -21,21 +21,21 @@ resource "aws_instance" "instance_2" {
 module "website_s3_bucket" {
   source = "./modules/aws-s3-static-website-bucket"
 
-  bucket_name = "terraform-11322"
+  bucket_name = var.website_s3-bucket_name
 
   tags = {
-    Terraform   = "true"
-    Environment = "test"
+    Terraform   = var.terraform
+    Environment = var.environment
   }
 }
 
 module "website_s3_bucket_2" {
   source = "./modules/aws-s3-static-website-bucket"
 
-  bucket_name = "terraform-22311"
+  bucket_name = var.website_s3_bucket_2_name
 
   tags = {
-    Terraform   = "true"
-    Environment = "test"
+    Terraform   = var.terraform
+    Environment = var.environment
   }
 }
